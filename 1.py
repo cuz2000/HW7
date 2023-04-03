@@ -6,18 +6,18 @@
 # Стихотворение  Винни-Пух вбивает в программу с клавиатуры. В ответе напишите “Парам пам-пам”, если с ритмом все в порядке и “Пам парам”,
 # если с ритмом все не в порядке
 
-print('Введите ваше стихотворение: ')
-#line = "если-я-чушу в-затылке-не-беда"
-line = input().lower()
-lines = line.split()
- 
-print(lines)
- 
-lst = [sum(x in 'уеыаоэяию' for x in lin)
- for lin in lines]
- 
-if len(set(lst)) == 1 :
-    res = "Парам пам-пам"  
-else: res = "Пам парам"
- 
-print(res)
+
+song = input()
+volwes = ['а', 'о', 'э', 'е', 'и', 'ы', 'у', 'ё', 'ю', 'я']
+parts = song.split()
+itog = list()
+for item in parts:
+    k = 0
+    for letter in item:
+        if letter in volwes:
+            k += 1
+    itog.append(k)
+if len(set(itog)) == 1:
+    print('Парам пам-пам')
+else:
+    print('Пам парам')
